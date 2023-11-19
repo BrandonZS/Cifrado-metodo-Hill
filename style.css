@@ -1,22 +1,130 @@
+.color1 {color: #061d1e;}
+.color2 {color: #324850;}
+.color3 {color: #7fa2ba;}
+.color4 {color: #b3cbc3;}
+.color5 {color: #f1efec;}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7fa2ba;
+    font-family: 'Roboto', sans-serif;
+    width: 100vh;
+}
+h1{
+    margin: 25px;
+    font-size: 48px;
+}
+h2{
+    padding: 20px;
+    color: #061d1e;
+}
+h3{
+    font-size: 24px;
+}
+input{
+    background-color: #f1efec;
+    border: none;
+}
+table{
+    background-color: #b3cbc3;
+}
+header{
+    display: flex;
+    align-items: center;
+    background-color: #061d1e;;
+    color: #f1efec;
+   
+    width: 100vw;
+    height: 80px;
+}
 div{
     display: flex;
-    gap: 100px;
+    align-items: center;
+    gap: 10px;
 }
 td{
-    padding: 10px;
+    padding: 5px;
     min-width: 40px;
+    height: 18px;
+    background-color: #f1efec;
+    border-radius: 10px;
+    max-width: 20px;
+    color: #061d1e;
+    border: 2px solid #b3cbc3;
+    text-align: center;
+}
+td:empty {
+    background-color: #c5d3ce;
+}
+tr{
+    width: 20px;
 }
 input{
     min-width: 40px;
+    color: #061d1e;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
 }
 
 table{
-    border: 5px solid red;
-    min-width: 200px;
-    padding: 5px;
-    margin: 10px;
-}
+    border-radius: 20px;
 
+    padding: 10px;
+    margin: 25px;
+}
+section{
+    background-color: #7fa2ba;
+    width: 100vw;
+    max-width: 100vw;
+}
+article{
+    max-width: 100vw;
+}
+div{
+    display: flex;
+    
+}
+button{
+    background-color: #7fa2ba;
+    border: none;
+    border-radius: 5px;
+    height: 80px;
+    width: 250px;
+    color: #f1efec;
+    font-size: 20px;
+    font-weight: 600;
+}
 .ingresarClave{
     max-width: 15px;
+}
+.column{
+    max-width: 50px;
+}
+#input-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #324850;
+    color: #f1efec;
+    width: 100vw;
+}
+#input{
+    background-color: #f1efec;
+    border-radius: 5px;
+    height: 30px;
+    padding: 3px;
+}
+.result{
+    background-color: #f1efec;
+}
+.operation{
+    color: #f1efec;
+    display: flex;
+    font-size: 30px;
+    font-weight: 600;
+    
 }

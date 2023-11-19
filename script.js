@@ -70,65 +70,101 @@ const text = document.querySelector('#input')
 const btn = document.querySelector('.submit')
 
 btn.addEventListener('click', () =>{
+    const divi = document.querySelector('.operation')
+    const inputs = document.querySelectorAll('.ingresarClave')
 
-    createMatrix(text.value);
-    printMatrix(matrix.length,4, matrix,'.matrix');
-    printMatrix(4,4,convertNumber(matrix),'.matrix');
+    let validar= true;
 
-    let matrixConvert1 = [];
-    let matrixConvert2 = [];
-    let matrixConvert3 = [];
-    let matrixConvert4 = [];
+    inputs.forEach(function(input) {
+        if (input.value === '') {
+            console.log(input.value);
+            validar = false;
+        }}
+        )
 
-        
-        const matrixColumn = createMatrixColumn(0,matrix,'.multiply1');
-        matrixClave = readMatrixKey();
-        printMatrix(4,4,matrixClave,'.multiply1');
-        const matrixMultiply1 = multiply(0,matrixColumn,matrixClave);
-        printMatrix(4,4,matrixMultiply1,'.multiply1');
-        const matrixmod1 = modear27(0,matrixMultiply1)
-        printMatrix(4,4,matrixmod1,'.multiply1')
-        matrixConvert1 = convertText(matrixmod1);
-        printMatrix(4,4,matrixConvert1,'.multiply1')
-        
+    if (divi !== null || text.value ==""|| validar==false)
+        {
+        alert("Algo salio mal")
+    }else{
+        createMatrix(text.value);
+        printMatrix(matrix.length,4, matrix,'.matrix');
+        printMatrix(4,4,convertNumber(matrix),'.matrix');
     
-    if (text.value.length>4){
-        createMatrixColumn(1,matrix,'.multiply2');
-        printMatrix(4,4,matrixClave,'.multiply2');
-        const matrixMultiply2 = multiply(1,matrixColumn,matrixClave)
-        printMatrix(4,4,matrixMultiply2,'.multiply2');
-        const matrixmod2 = modear27(1,matrixMultiply2);
-        printMatrix(4,4,matrixmod2,'.multiply2')
-        matrixConvert2 = convertText(matrixmod2);
-        printMatrix(4,4,matrixConvert2,'.multiply2')
+        let matrixConvert1 = [];
+        let matrixConvert2 = [];
+        let matrixConvert3 = [];
+        let matrixConvert4 = [];
+    
+            
+            
+            matrixClave = readMatrixKey();
+            printMatrix(4,4,matrixClave,'.multiply1');
+            operaciones("*",'.multiply1')
+            const matrixColumn = createMatrixColumn(0,matrix,'.multiply1');
+            operaciones("=",'.multiply1')
+            const matrixMultiply1 = multiply(0,matrixColumn,matrixClave);
+            printMatrix(4,4,matrixMultiply1,'.multiply1');
+            operaciones("→ mod(27)",'.multiply1')
+            const matrixmod1 = modear27(0,matrixMultiply1)
+            printMatrix(4,4,matrixmod1,'.multiply1')
+            operaciones("=",'.multiply1')
+            matrixConvert1 = convertText(matrixmod1);
+            printMatrix(4,4,matrixConvert1,'.multiply1')
+            
         
-    }
-    if (text.value.length>8){
-        createMatrixColumn(2,matrix,'.multiply3');
-        printMatrix(4,4,matrixClave,'.multiply3');
-        const matrixMultiply3 = multiply(2,matrixColumn,matrixClave);
-        printMatrix(4,4,multiply(2,matrixColumn,matrixClave),'.multiply3');
-        const matrixmod3 = modear27(2,matrixMultiply3);
-        printMatrix(4,4,matrixmod3,'.multiply3');
-        matrixConvert3 = convertText(matrixmod3);
-        printMatrix(4,4,matrixConvert3,'.multiply3')
+        if (text.value.length>4){
+            printMatrix(4,4,matrixClave,'.multiply2');
+            operaciones("*",'.multiply2')
+            createMatrixColumn(1,matrix,'.multiply2');
+            operaciones("=",'.multiply2')
+            const matrixMultiply2 = multiply(1,matrixColumn,matrixClave)
+            printMatrix(4,4,matrixMultiply2,'.multiply2');
+            operaciones("→ mod(27)",'.multiply2')
+            const matrixmod2 = modear27(1,matrixMultiply2);
+            printMatrix(4,4,matrixmod2,'.multiply2')
+            operaciones("=",'.multiply2')
+            matrixConvert2 = convertText(matrixmod2);
+            printMatrix(4,4,matrixConvert2,'.multiply2')
+            
+        }
+        if (text.value.length>8){
+            printMatrix(4,4,matrixClave,'.multiply3');
+            operaciones("*",'.multiply3')
+            createMatrixColumn(2,matrix,'.multiply3');
+            operaciones("=",'.multiply3')
+            const matrixMultiply3 = multiply(2,matrixColumn,matrixClave);
+            printMatrix(4,4,matrixMultiply3,'.multiply3');
+            operaciones("→ mod(27)",'.multiply3')
+            const matrixmod3 = modear27(2,matrixMultiply3);
+            printMatrix(4,4,matrixmod3,'.multiply3');
+            operaciones("=",'.multiply3')
+            matrixConvert3 = convertText(matrixmod3);
+            printMatrix(4,4,matrixConvert3,'.multiply3')
+            
+        }
+        if (text.value.length>12){
+            printMatrix(4,4,matrixClave,'.multiply4');
+            operaciones("*",'.multiply4')
+            createMatrixColumn(3,matrix,'.multiply4');
+            operaciones("=",'.multiply4')
+            const matrixMultiply4 = multiply(3,matrixColumn,matrixClave);
+            printMatrix(4,4,matrixMultiply4,'.multiply4');
+            operaciones("→ mod(27)",'.multiply4')
+            const matrixmod4 = modear27(3,matrixMultiply4);
+            printMatrix(4,4,matrixmod4,'.multiply4')
+            operaciones("=",'.multiply4')
+            matrixConvert4 = convertText(matrixmod4)
+            printMatrix(4,4,matrixConvert4,'.multiply4')
+            
+        }
+        const container = document.querySelector('.result')
+        const resultado = document.createElement('h2');
+        resultado.textContent = concatenarMatrices(matrixConvert1,matrixConvert2,matrixConvert3,matrixConvert4);
+        container.appendChild(resultado)
         
+
     }
-    if (text.value.length>12){
-        createMatrixColumn(3,matrix,'.multiply4');
-        printMatrix(4,4,matrixClave,'.multiply4');
-        const matrixMultiply4 = multiply(3,matrixColumn,matrixClave);
-        printMatrix(4,4,matrixMultiply3,'.multiply4');
-        const matrixmod4 = modear27(3,matrixMultiply3);
-        printMatrix(4,4,modear27(3,multiply(3,matrix,matrixClave)),'.multiply4')
-        matrixConvert4 = convertText(matrixmod4)
-        printMatrix(4,4,matrixConvert4,'.multiply4')
-        
-    }
-    const container = document.querySelector('.Result')
-    const resultado = document.createElement('h2');
-    resultado.textContent = concatenarMatrices(matrixConvert1,matrixConvert2,matrixConvert3,matrixConvert4);
-    container.appendChild(resultado)
+
     
 
     
@@ -245,6 +281,7 @@ function readMatrixKey() {
 }
 function createMatrixColumn(column, mat,div){
     const table = document.createElement('table')
+    table.className = 'column';
     const container = document.querySelector(div)
     
     for (let i = 0; i < 4; i++){
@@ -314,5 +351,12 @@ function concatenarMatrices(...matrices) {
 
       
 
-    return resultado;
+    return "Resultado: "+resultado;
+  }
+  function operaciones(string, node){
+    const container = document.querySelector(node);
+    const symbol = document.createElement('h3')
+    symbol.textContent = string;
+    symbol.className = 'operation'
+    container.appendChild(symbol);
   }
