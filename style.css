@@ -1,0 +1,22 @@
+div{
+    display: flex;
+    gap: 100px;
+}
+td{
+    padding: 10px;
+    min-width: 40px;
+}
+input{
+    min-width: 40px;
+}
+
+table{
+    border: 5px solid red;
+    min-width: 200px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.ingresarClave{
+    max-width: 15px;
+}
