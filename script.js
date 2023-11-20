@@ -287,16 +287,17 @@ function createMatrixColumn(column, mat,div){
     for (let i = 0; i < 4; i++){
         const fila = document.createElement('tr');
         const celda = document.createElement('td');
-        celda.textContent = mat[i][column];
+        
         if(mat[i][column] === undefined){
-            celda.textContent = "27";
+            mat[i][column] = 27;
         }
-
+        celda.textContent = mat[i][column];
         fila.appendChild(celda);
         table.appendChild(fila);
         
     }
     container.appendChild(table);
+    console.log(mat);
     return mat;
 }
 
@@ -308,7 +309,10 @@ function multiply(column, mat, matKey){
         let temporal = 0;
         let matrixtemp = initializeMatrix(4,4)
         for (let j = 0; j<4; j++){
+            console.log(mat[j][column] );
+            console.log(parseInt(matKey[i][j]));
             matrixtemp[j][i]= (mat[j][column]  * parseInt(matKey[i][j]));
+            console.log("= "+matrixtemp[j][i]);
             temporal += matrixtemp[j][i];
         }
         matrixEncrypted[i][column] = temporal;
